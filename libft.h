@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccrecent <ccrecent@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ccrecent <ccrecent@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 12:33:21 by ccrecent          #+#    #+#             */
-/*   Updated: 2022/09/29 11:13:29 by ccrecent         ###   ########.fr       */
+/*   Updated: 2022/10/04 15:12:37 by ccrecent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,8 @@ void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 int		ft_atoi(const char *str);
-
-// void	*ft_calloc(size_t count, size_t size);
-
-// strdup (malloc)
+void	*ft_calloc(size_t count, size_t size);
+char	*ft_strdup(const char *s1);
 
 // ft_substr
 // ft_strjoin

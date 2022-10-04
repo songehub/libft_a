@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ccrecent <ccrecent@student.42.fr>          +#+  +:+       +#+         #
+#    By: ccrecent <ccrecent@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/22 17:34:00 by ccrecent          #+#    #+#              #
-#    Updated: 2022/09/29 11:13:49 by ccrecent         ###   ########.fr        #
+#    Updated: 2022/10/04 15:08:39 by ccrecent         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,8 @@ SRCS =	ft_isalnum.c	\
 		ft_memcmp.c	\
 		ft_strnstr.c	\
 		ft_atoi.c	\
-		ft_calloc.c
+		ft_calloc.c	\
+		ft_strdup.c	\
 		
 OBJS = $(SRCS:.c=.o)
 CC = gcc

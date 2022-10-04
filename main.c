@@ -829,33 +829,50 @@ int main (void)
 
 /*
 atoi
-int	ft_atoi(char *str)
-{
-	int	sign;
-	int	result;
-	int	i;
 
-	sign = 1;
-	result = 0;
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include "libft.h"
+
+int	ft_atoi(const char *str)
+{
+	int	i;
+	int	flag;
+	int	result;
+
 	i = 0;
-	while (str[i] && (str[i] == '\f' || str[i] == '\t' || str[i] == ' '
-			|| str[i] == '\n' || str[i] == '\r' || str[i] == '\v'))
+	flag = 1;
+	result = 0;
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
 		i++;
-	while (str[i] && (str[i] == '+' || str[i] == '-'))
+	if (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
-			sign *= -1;
+			flag = flag * -1;
 		i++;
 	}
-	while (str[i] && str[i] >= '0' && str[i] <= '9')
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		result *= 10;
-		result += str[i] - '0' ;
+		result = (str[i] - 48) + (result * 10);
 		i++;
 	}
-	result *= sign;
+	result = result * flag;
 	return (result);
 }
+
+int	main(void)
+{
+	char	str[] = "    +4564-12389789";
+	int		rest = ft_atoi(str);
+	printf ("%d ", rest);
+	printf ("\n");
+	int		rest_test = atoi(str);
+	printf ("%d ", rest_test);
+	printf ("\n");
+	return (0);
+}
+
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 */
@@ -863,32 +880,103 @@ int	ft_atoi(char *str)
 /*
 calloc (malloc)
 
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include "libft.h"
+
+void	ft_bzero(void *s, size_t n)
+{
+	size_t	i;
+	char	*b;
+
+	i = 0;
+	b = s;
+	while (i < n)
+	{
+		b[i] = '\0';
+		i++;
+	}
+}
+
+void	*ft_calloc(size_t count, size_t size)
+{
+	void	*ptr;
+
+ptr = (char *)malloc(count * size);
+	if (ptr == NULL)
+		return (NULL);
+	ft_bzero(ptr, count * size);
+	return (ptr);
+}
+
+
+int	main(void)
+{
+	void	*ptrc;
+	void	*ptrm;
+	int		i;
+
+	ptrc = calloc(3, 4);
+	ptrm = malloc(12);
+	i = 0;
+	while (i < 12)
+	{
+		printf("%c__", ((char *)ptrm)[i] + 48);
+		printf("%c\n", ((char *)ptrc)[i] + 48);
+		i++;
+	}
+}
+
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 */
 
 /*
-strdup (malloc)
-char	*ft_strdup(char *src)
-{
-	int		index;
-	char	*dest;
-	char	*d;
 
-	index = 0;
-	d = ((dest = (char *)malloc(ft_str_length(src) * sizeof(char) + 1)));
-	if (!d)
-	{
-		return (0);
-	}
-	while (src[index])
-	{
-		dest[index] = src[index];
-		index++;
-	}
-	dest[index] = '\0';
-	return (dest);
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include "libft.h"
+
+size_t	ft_strlen(const char *s)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
 }
+
+char	*ft_strdup(const char *s1)
+{
+	size_t	len;
+	size_t	i;
+	char	*ptr;
+
+	len = ft_strlen(s1);
+	ptr = (char *)malloc((len + 1) * sizeof(char));
+	if (ptr == NULL)
+		return (NULL);
+	i = 0;
+	while (s1[i] != '\0')
+	{
+		ptr[i] = s1[i];
+		i++;
+	}
+	ptr[i] = '\0';
+	return (ptr);
+}
+
+int	main(void)
+{
+	char	string[] = "cadena a copiar";
+
+	printf("%s\n", strdup(string));
+	printf("%s\n", ft_strdup(string));
+}
+
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 */
