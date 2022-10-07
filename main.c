@@ -933,6 +933,69 @@ int	main(void)
 */
 
 /*
+ft_strdup
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include "libft.h"
+
+size_t	ft_strlen(const char *s)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
+}
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	char	*ptr;
+	size_t	i;
+	size_t	str_len;
+	size_t	max_len;
+
+	str_len = ft_strlen(s);
+	if (!s)
+		return (NULL);
+	if (len > str_len)
+		max_len = str_len;
+	else
+		max_len = len;
+	ptr = (char *)malloc(sizeof(char) * (max_len + 1));
+	if (!ptr)
+		return (NULL);
+	i = 0;
+	while (start < str_len && i < len)
+	{
+		ptr[i] = s[start];
+		i++;
+		start++;
+	}
+	ptr[i] = '\0';
+	return (ptr);
+}
+
+
+int	main(void)
+{
+	char	*str = "cadena_de_prueba";
+	size_t	size = 0;
+	size_t	start = 4294967295;
+	size_t	str_len = strlen(str);
+	
+	printf("%s\n", ft_substr(str, start, size));
+	printf("%s\n", ft_substr(str, (str_len + 1), size));
+	return (0);
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+/*
+ft_substr
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -949,40 +1012,33 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-char	*ft_strdup(const char *s1)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	len;
+	char	*new_str;
 	size_t	i;
-	char	*ptr;
+	size_t	j;
 
-	len = ft_strlen(s1);
-	ptr = (char *)malloc((len + 1) * sizeof(char));
-	if (ptr == NULL)
-		return (NULL);
-	i = 0;
-	while (s1[i] != '\0')
-	{
-		ptr[i] = s1[i];
-		i++;
-	}
-	ptr[i] = '\0';
-	return (ptr);
+	if (!s || !(new_str = (char *)malloc(len + 1)))
+		return (0);
+	i = start;
+	j = 0;
+	while (i < ft_strlen(s) && j < len)
+		new_str[j++] = s[i++];
+	new_str[j] = '\0';
+	return (new_str);
 }
 
 int	main(void)
 {
-	char	string[] = "cadena a copiar";
-
-	printf("%s\n", strdup(string));
-	printf("%s\n", ft_strdup(string));
+	char *str = "cadena_de_prueba";
+	size_t size = 0;
+	size_t start = 4294967295;
+	size_t str_len = strlen(str);
+	
+	printf("%s\n", ft_substr(str, start, size));
+	printf("%s\n", ft_substr(str, (str_len + 1), size));
+	return (0);
 }
-
-------------------------------------------------------------------------------------------------------------------------------------------------------
-------------------------------------------------------------------------------------------------------------------------------------------------------
-*/
-
-/*
-ft_substr
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1226,22 +1282,8 @@ ft_striteri
 
 /*
 ft_putchar_fd
-void	ft_putchar(char c)
-{
-	write (1, &c, 1);
-}
 
-void	ft_putstr(char *str)
-{
-	int	i;
 
-	i = 0;
-	while (str[i] != '\0')
-	{
-		write (1, &str[i], 1);
-		i++;
-	}	
-}
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 */
@@ -1262,28 +1304,8 @@ ft_putendl_fd
 
 /*
 ft_putnbr_fd
-void	ft_putnbr(int nb)
-{
-	if (nb == -2147483648)
-	{
-		ft_putchar('-');
-		ft_putchar('2');
-		ft_putnbr(147483648);
-	}
-	else if (nb < 0)
-	{
-		ft_putchar('-');
-		nb = -nb;
-		ft_putnbr(nb);
-	}
-	else if (nb > 9)
-	{
-		ft_putnbr(nb / 10);
-		ft_putnbr(nb % 10);
-	}
-	else
-		 ft_putchar(nb + 48);
-}
+
+
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 */
