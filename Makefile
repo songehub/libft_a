@@ -6,7 +6,7 @@
 #    By: ccrecent <ccrecent@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/22 17:34:00 by ccrecent          #+#    #+#              #
-#    Updated: 2022/10/04 15:08:39 by ccrecent         ###   ########.fr        #
+#    Updated: 2022/10/17 14:44:40 by ccrecent         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,10 @@ SRCS =	ft_isalnum.c	\
 		ft_atoi.c	\
 		ft_calloc.c	\
 		ft_strdup.c	\
+		ft_substr.c	\
+		ft_strjoin.c	\
+		ft_strtrim.c	\
+		ft_split.c	\
 		
 OBJS = $(SRCS:.c=.o)
 CC = gcc

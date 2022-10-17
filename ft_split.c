@@ -1,37 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccrecent <ccrecent@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/24 15:14:55 by ccrecent          #+#    #+#             */
-/*   Updated: 2022/10/07 15:20:57 by ccrecent         ###   ########.fr       */
+/*   Created: 2022/10/17 14:43:59 by ccrecent          #+#    #+#             */
+/*   Updated: 2022/10/17 15:28:12 by ccrecent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+size_t	ft_strlen(const char *s)
 {
-	size_t			i;
-	unsigned char	*dest;
-	unsigned char	*str;
+	size_t	i;
 
-	dest = (unsigned char *)dst;
-	str = (unsigned char *)src;
-	if (dst == NULL && src == NULL)
-		return (NULL);
-	if (src > dst)
-		ft_memcpy(dst, src, len);
-	else
-	{
-		i = len;
-		while (i)
-		{
-			dest[i - 1] = str[i - 1];
-			i--;
-		}
-	}
-	return (dst);
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
 }
+
+char	**ft_split(const char *s, char c)
+{
+
+	
+}
+
+int main(void)
+{
+    char s[] = "Cadena de Prueba";
+	char c = ' ';
+	int i = 0;
+	char **str = ft_split(s, c);
+    
+	while (i < 10)
+	{
+		printf("%s\n", str[i]);
+		i++;		
+	}
+} 

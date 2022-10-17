@@ -6,7 +6,7 @@
 /*   By: ccrecent <ccrecent@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 12:33:21 by ccrecent          #+#    #+#             */
-/*   Updated: 2022/10/04 15:12:37 by ccrecent         ###   ########.fr       */
+/*   Updated: 2022/10/17 14:43:26 by ccrecent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,11 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 int		ft_atoi(const char *str);
 void	*ft_calloc(size_t count, size_t size);
 char	*ft_strdup(const char *s1);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strtrim(char const *s1, char const *set);
+char	**ft_split(char const *s, char c);
 
-// ft_substr
-// ft_strjoin
-// ft_strtrim
-// ft_split
 // ft_itoa
 // ft_strmapi
 // ft_striteri
